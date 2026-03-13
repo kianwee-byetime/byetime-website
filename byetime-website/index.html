@@ -475,6 +475,11 @@
     .contact-section{padding:68px 24px;}
   }
 
+  /* scroll reveal */
+  .reveal-ready{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal-ready.revealed{opacity:1;transform:translateY(0);}
+  .service-card.reveal-ready{transition:opacity .6s ease,transform .6s ease,background .3s,box-shadow .3s;}
+
 </style>
 </head>
 <body>
@@ -602,7 +607,6 @@
   <p>Whether you're starting from scratch or fixing what's broken — first consultation is on us.</p>
   <div class="cta-actions">
     <a href="#contact-form" class="btn-white">Schedule a Free Consultation</a>
-    <a href="tel:+60173133284" class="btn-cream-outline">+60 17-313 3284</a>
   </div>
 </section>
 
@@ -614,7 +618,7 @@
       <h2 id="contact-heading">Let's Talk About Your Business</h2>
       <p>Tell us what you're working on — we'll come back to you within 1 business day.</p>
       <div class="contact-details">
-        <div class="contact-item"><span class="contact-icon">✉</span><a href="mailto:info@byetime.ai">info@byetime.ai</a></div>
+        <div class="contact-item"><span class="contact-icon">✉</span><a href="/cdn-cgi/l/email-protection#234a4d454c63415a46574a4e460d424a"><span class="__cf_email__" data-cfemail="6900070f06290b100c1d00040c470800">[email&#160;protected]</span></a></div>
         <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:+60173133284">+60 17-313 3284</a></div>
         <div class="contact-item"><span class="contact-icon">📍</span><span>Malaysia · Southeast Asia · APAC</span></div>
       </div>
@@ -696,7 +700,7 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <address style="font-style:normal;">
-          <a href="mailto:info@byetime.ai">info@byetime.ai</a>
+          <a href="/cdn-cgi/l/email-protection#bfd6d1d9d0ffddc6dacbd6d2da91ded6"><span class="__cf_email__" data-cfemail="2f464149406f4d564a5b46424a014e46">[email&#160;protected]</span></a>
           <a href="tel:+60173133284">+60 17-313 3284</a>
         </address>
       </div>
@@ -709,7 +713,7 @@
 </footer>
 
 </main>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Nav dropdown toggle for mobile
 document.querySelectorAll('.nav-dropdown>a').forEach(function(btn){
   btn.addEventListener('click',function(e){
@@ -742,6 +746,55 @@ function handleContactSubmit(e){
   window.location.href='mailto:info@byetime.ai?subject='+subject+'&body='+body;
   form.style.display='none';
   success.style.display='block';
+}
+
+// ── SCROLL REVEAL ──
+var revealEls = document.querySelectorAll('.service-card, .step, .testi-card, .contact-inner, .section-title, .section-label');
+var revealObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1});
+revealEls.forEach(function(el){
+  el.classList.add('reveal-ready');
+  revealObserver.observe(el);
+});
+
+// ── MOUSE TILT on service cards ──
+document.querySelectorAll('.service-card').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var rect=card.getBoundingClientRect();
+    var x=(e.clientX-rect.left)/rect.width-0.5;
+    var y=(e.clientY-rect.top)/rect.height-0.5;
+    card.style.transform='perspective(600px) rotateY('+x*5+'deg) rotateX('+(-y*5)+'deg) translateY(-4px)';
+  });
+  card.addEventListener('mouseleave',function(){
+    card.style.transform='';
+  });
+});
+
+// ── TYPEWRITER on hero badge ──
+var badgeText=document.getElementById('badge-text');
+if(!badgeText){
+  var badge=document.querySelector('.hero-badge');
+  if(badge){
+    badge.innerHTML='<span style="display:inline-block;width:6px;height:6px;background:#FA5850;border-radius:50%;animation:blink 2s infinite;margin-right:8px;flex-shrink:0;"></span><span id="badge-text">Technology Partner for Growing Businesses</span>';
+    badgeText=document.getElementById('badge-text');
+  }
+}
+if(badgeText){
+  var phrases=['Technology Partner for Growing Businesses','AI Automation Specialists','ERP & System Integration Experts','Your Tech Team in Malaysia'];
+  var pi=0,ci=phrases[0].length,deleting=true;
+  function type(){
+    var phrase=phrases[pi];
+    if(!deleting){ci++;badgeText.textContent=phrase.slice(0,ci);if(ci===phrase.length){deleting=true;setTimeout(type,2400);return;}}
+    else{ci--;badgeText.textContent=phrase.slice(0,ci);if(ci===0){deleting=false;pi=(pi+1)%phrases.length;}}
+    setTimeout(type,deleting?38:65);
+  }
+  setTimeout(type,2400);
 }
 </script>
 </body>

@@ -378,6 +378,37 @@
     .nav-dropdown.open .nav-drop-menu{display:block;}
   }
 
+  /* contact form */
+  .contact-section{padding:96px 60px;background:var(--cream);}
+  .contact-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;max-width:1100px;margin:0 auto;}
+  .contact-left h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:16px;color:var(--text-dark);}
+  .contact-left>p{font-size:15px;color:var(--text-mid);line-height:1.7;margin-bottom:32px;}
+  .contact-details{display:flex;flex-direction:column;gap:14px;}
+  .contact-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text-mid);}
+  .contact-item a{color:var(--text-mid);text-decoration:none;transition:color .2s;}
+  .contact-item a:hover{color:var(--green);}
+  .contact-icon{width:36px;height:36px;background:rgba(250,88,80,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .contact-right{background:var(--white);border-radius:20px;padding:40px;border:1px solid rgba(42,74,66,0.08);box-shadow:0 4px 24px rgba(42,74,66,0.06);}
+  .contact-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .contact-form .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+  .contact-form label{font-size:12px;font-weight:600;color:var(--text-dark);}
+  .contact-form input,.contact-form select,.contact-form textarea{padding:11px 14px;border:1.5px solid rgba(42,74,66,0.15);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--text-dark);background:var(--cream);transition:border-color .2s;outline:none;}
+  .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--red);}
+  .contact-form textarea{resize:vertical;min-height:100px;}
+  .form-note{font-size:11px;color:var(--text-light);text-align:center;margin-top:12px;}
+  .form-success{text-align:center;padding:40px 20px;}
+  .success-icon{width:60px;height:60px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--cream);margin:0 auto 16px;font-weight:800;}
+  .form-success h3{font-size:22px;font-weight:800;color:var(--text-dark);margin-bottom:8px;}
+  .form-success p{font-size:14px;color:var(--text-mid);}
+  @media(max-width:900px){
+    .contact-inner{grid-template-columns:1fr;gap:40px;}
+    .contact-form .form-row{grid-template-columns:1fr;}
+    .contact-section{padding:68px 24px;}
+  }
+
+  .btn-primary{background:var(--red);color:var(--white);padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:'Poppins',sans-serif;}
+  .btn-primary:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(250,88,80,0.28);}
+
 </style>
 </head>
 <body>
@@ -605,7 +636,70 @@
   <p>If you're looking to build smarter systems, automate workflows, or scale your digital capabilities — we'd love to explore how we can help.</p>
   <div class="cta-actions">
     <a href="#contact-form" class="btn-white">Schedule a Consultation</a>
-    <a href="tel:+60173133284" class="btn-cream-outline">+60 17-313 3284</a>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-section" id="contact-form" aria-labelledby="contact-heading">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p class="section-label">Get In Touch</p>
+      <h2 id="contact-heading">Let's Talk About Your Business</h2>
+      <p>Tell us what you're working on — we'll come back to you within 1 business day.</p>
+      <div class="contact-details">
+        <div class="contact-item"><span class="contact-icon">✉</span><a href="mailto:info@byetime.ai">info@byetime.ai</a></div>
+        <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:+60173133284">+60 17-313 3284</a></div>
+        <div class="contact-item"><span class="contact-icon">📍</span><span>Malaysia · Southeast Asia · APAC</span></div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <form class="contact-form" id="about-contact-form" onsubmit="handleContactSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Your Name *</label>
+            <input type="text" id="cf-name" name="name" placeholder="e.g. Ahmad Rizal" required/>
+          </div>
+          <div class="form-group">
+            <label for="cf-company">Company</label>
+            <input type="text" id="cf-company" name="company" placeholder="e.g. Syarikat Maju Sdn Bhd"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-email">Email Address *</label>
+            <input type="email" id="cf-email" name="email" placeholder="you@company.com" required/>
+          </div>
+          <div class="form-group">
+            <label for="cf-phone">Phone Number</label>
+            <input type="tel" id="cf-phone" name="phone" placeholder="+60 12-345 6789"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-service">Service of Interest</label>
+          <select id="cf-service" name="service">
+            <option value="">— Select a service —</option>
+            <option>System Integration</option>
+            <option>Tech Consulting</option>
+            <option>ERP with Odoo</option>
+            <option>Warehouse Management System (WMS)</option>
+            <option>E-Commerce Solutions</option>
+            <option>AI Automation</option>
+            <option>Not sure yet — need advice</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Tell us about your challenge *</label>
+          <textarea id="cf-message" name="message" rows="4" placeholder="What are you trying to solve?" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;padding:16px;font-size:16px;">Send Message →</button>
+        <p class="form-note">We respond within 1 business day. No spam, ever.</p>
+      </form>
+      <div class="form-success" id="form-success" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. We'll be in touch within 1 business day.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -621,12 +715,12 @@
     <div class="footer-links">
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="/#services">System Integration</a>
-        <a href="/#services">Tech Consulting</a>
-        <a href="/#services">ERP with Odoo</a>
-        <a href="/#services">WMS</a>
-        <a href="/#services">E-Commerce</a>
-        <a href="/#services">AI Automation</a>
+        <a href="/services/system-integration">System Integration</a>
+        <a href="/services/tech-consulting">Tech Consulting</a>
+        <a href="/services/erp-odoo">ERP with Odoo</a>
+        <a href="/services/wms">WMS</a>
+        <a href="/services/e-commerce">E-Commerce</a>
+        <a href="/services/ai-automation">AI Automation</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
@@ -637,7 +731,7 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <address style="font-style:normal;">
-          <a href="mailto:info@byetime.ai"><span class="__cf_email__" data-cfemail="30595e565f7052495544595d551e5159">[email&#160;protected]</span></a>
+          <a href="mailto:info@byetime.ai">info@byetime.ai</a>
           <a href="tel:+60173133284">+60 17-313 3284</a>
         </address>
       </div>
@@ -645,7 +739,23 @@
   </div>
   <div class="footer-bottom">
     <p>© 2025 Byetime Consulting and Solution. All rights reserved.</p>
-    
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-dec
+<script>
+function handleContactSubmit(e){
+  e.preventDefault();
+  var form=e.target;
+  var success=document.getElementById('form-success');
+  var name=form.querySelector('[name=name]').value;
+  var email=form.querySelector('[name=email]').value;
+  var service=form.querySelector('[name=service]').value;
+  var message=form.querySelector('[name=message]').value;
+  var subject=encodeURIComponent('Byetime Enquiry'+(service?' — '+service:''));
+  var body=encodeURIComponent('Name: '+name+'\nService: '+(service||'Not specified')+'\n\nMessage:\n'+message+'\n\nFrom: '+email);
+  window.location.href='mailto:info@byetime.ai?subject='+subject+'&body='+body;
+  form.style.display='none';
+  success.style.display='block';
+}
+</script>
+</body>
+</html>
