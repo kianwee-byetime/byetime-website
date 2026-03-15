@@ -235,8 +235,8 @@
     position:relative;overflow:hidden;
   }
   .hero::before{
-    content:'';position:absolute;top:-120px;right:-120px;
-    width:600px;height:600px;border-radius:50%;
+  width:300px;
+  height:300px;
     background:radial-gradient(circle,rgba(250,88,80,0.1) 0%,transparent 70%);
   }
   .hero-dots{
@@ -274,7 +274,13 @@
   .int-wrap::before,.int-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
   .int-wrap::before{left:0;background:linear-gradient(90deg,var(--cream-dark),transparent);}
   .int-wrap::after{right:0;background:linear-gradient(-90deg,var(--cream-dark),transparent);}
-  .int-track{display:flex;gap:16px;align-items:center;width:max-content;animation:ticker 32s linear infinite;}
+  .int-track{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  width:200%;
+  animation:ticker 32s linear infinite;
+}
   .int-track:hover{animation-play-state:paused;}
   @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
   .int-logo-card{
@@ -463,6 +469,14 @@
     .nav-drop-menu-inner{background:transparent;border:none;box-shadow:none;padding:0;}
   }
 
+
+  @media(max-width:768px){
+  .nav-drop-menu{
+    left:0;
+    transform:none;
+    width:100%;
+  }
+}
   /* contact form section */
   .contact-section{padding:96px 60px;background:var(--cream);}
   .contact-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;max-width:1100px;margin:0 auto;}
