@@ -337,7 +337,26 @@
   /* ── RESPONSIVE ── */
   @media(max-width:900px){
     nav{padding:16px 20px;}
-    .nav-links{display:none;}
+        .nav-links{
+  display:none;
+  position:absolute;
+  top:70px;
+  right:20px;
+  background:white;
+  flex-direction:column;
+  gap:16px;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+    .nav-links.open{
+  display:flex;
+}
+
+.burger{
+  display:grid!important;
+  width: 65px;
+}
     .about-hero,.mission,.beliefs,.who,.approach,.founder,.about-cta{padding:72px 24px;}
     .about-hero-inner,.mission-inner,.who-inner,.founder-inner{grid-template-columns:1fr;gap:40px;}
     .about-hero-img,.mission-img,.who-img{height:260px;}
@@ -409,6 +428,23 @@
   .btn-primary{background:var(--red);color:var(--white);padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:'Poppins',sans-serif;}
   .btn-primary:hover{background:var(--red-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(250,88,80,0.28);}
 
+    /* ── BURGER MENU ── */
+
+.burger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.burger span{
+  width:24px;
+  height:2px;
+  background:var(--text-dark);
+  display:block;
+}
 </style>
 </head>
 <body>
@@ -434,6 +470,11 @@
     <li><a href="/case-studies">Case Studies</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
+   <button class="burger" aria-label="Toggle navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 </nav>
 </header>
 
@@ -742,6 +783,14 @@
   </div>
 </footer>
 <script>
+  // ── BURGER MENU ──
+var burger = document.querySelector('.burger');
+var navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', function(){
+  navLinks.classList.toggle('open');
+});
+  
 function handleContactSubmit(e){
   e.preventDefault();
   var form=e.target;
