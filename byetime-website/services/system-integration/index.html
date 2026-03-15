@@ -45,7 +45,7 @@
     --white:#FFFFFF;
     --text-dark:#1A2E28; --text-mid:#4A5E58; --text-light:#8A9E98;
     --accent:#FA5850;
-    --hero-bg:#1C3530;
+    --hero-bg:#2A4A42;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -179,9 +179,9 @@
   .ph-label{opacity:.5;line-height:1.5;text-align:center;position:relative;z-index:1;}
   .ph-size{font-size:11px;opacity:.35;position:relative;z-index:1;}
 
-  /* ──  GRID ── */
-  .{padding:88px 60px;background:var(--white);}
-  .-inner{max-width:1200px;margin:0 auto;}
+  /* ── SERVICES GRID ── */
+  .services{padding:88px 60px;background:var(--white);}
+  .services-inner{max-width:1200px;margin:0 auto;}
   .sec-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
   .sec-title{font-size:clamp(26px,3.5vw,42px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;color:var(--text-dark);margin-bottom:44px;}
   .svc-grid{
@@ -304,7 +304,7 @@
   @media(max-width:960px){
     nav{padding:16px 20px;}
     .nav-links{display:none;}
-    .breadcrumb,.svc-hero,.how,.,.faq,.cta-banner{padding-left:24px;padding-right:24px;}
+    .breadcrumb,.svc-hero,.how,.services,.faq,.cta-banner{padding-left:24px;padding-right:24px;}
     .svc-hero-inner,.how-inner{grid-template-columns:1fr;gap:36px;}
     .hero-visual,.how-img{height:220px;}
     .svc-grid{grid-template-columns:1fr 1fr;}
@@ -677,8 +677,3 @@ function handleSubmit() {
   alert('Thank you, ' + name + '! We\'ll be in touch within 1 business day.');
 }
 </script>
-
-<script>
-// Mobile nav dropdown toggle
-
-document
