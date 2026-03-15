@@ -396,7 +396,27 @@
 
   @media(max-width:900px){
     nav{padding:16px 20px;}
-    .nav-links{display:none;}
+    .nav-links{
+  display:none;
+  position:absolute;
+  top:70px;
+  right:20px;
+  background:white;
+  flex-direction:column;
+  gap:16px;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+  
+.nav-links.open{
+  display:flex;
+}
+
+.burger{
+  display:grid!important;
+  width: 65px;
+}
     .hero,.int-strip,.services,.odoo-section,.ai-section,.process,.testimonials,.cta-section{padding:68px 24px;}
     .hero-float{display:none;}
     .services-grid{grid-template-columns:1fr;}
@@ -480,6 +500,23 @@
   .reveal-ready.revealed{opacity:1;transform:translateY(0);}
   .service-card.reveal-ready{transition:opacity .6s ease,transform .6s ease,background .3s,box-shadow .3s;}
 
+  /* ── BURGER MENU ── */
+
+.burger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.burger span{
+  width:24px;
+  height:2px;
+  background:var(--text-dark);
+  display:block;
+}
 </style>
 </head>
 <body>
@@ -506,6 +543,11 @@
     <li><a href="/case-studies">Case Studies</a></li>
     <li><a href="#contact-form" class="nav-cta">Get in Touch</a></li>
   </ul>
+  <button class="burger" aria-label="Toggle navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 </nav>
 </header>
 
@@ -719,6 +761,14 @@
 
 </main>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── BURGER MENU ──
+var burger = document.querySelector('.burger');
+var navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', function(){
+  navLinks.classList.toggle('open');
+});
+  
 // Nav dropdown toggle for mobile
 document.querySelectorAll('.nav-dropdown>a').forEach(function(btn){
   btn.addEventListener('click',function(e){
