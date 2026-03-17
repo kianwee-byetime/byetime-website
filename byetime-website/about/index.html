@@ -341,6 +341,7 @@
   display:none;
   position:absolute;
   top:70px;
+  left:20px; right:20px; width:auto;
   right:20px;
   background:white;
   flex-direction:column;
@@ -458,14 +459,14 @@
     <li><a href="/">Home</a></li>
     <li class="nav-dropdown">
       <a href="https://byetime-website.vercel.app/#services" aria-haspopup="true" aria-expanded="false" id="nav-services-btn">Services</a>
-      <ul class="nav-drop-menu" role="menu" aria-labelledby="nav-services-btn">
+      <ul class="nav-drop-menu" role="menu" aria-labelledby="nav-services-btn"><div class="nav-drop-menu-inner">
         <li role="menuitem" style="list-style: none!important;"><a href="/services/system-integration"><span class="drop-icon" aria-hidden="true">🔗</span>System Integration</a></li>
         <li role="menuitem" style="list-style: none!important;"><a href="/services/tech-consulting"><span class="drop-icon" aria-hidden="true">💡</span>Tech Consulting</a></li>
         <li role="menuitem" style="list-style: none!important;"><a href="/services/erp-odoo"><span class="drop-icon" aria-hidden="true">🏢</span>ERP with Odoo</a></li>
         <li role="menuitem" style="list-style: none!important;"><a href="/services/wms"><span class="drop-icon" aria-hidden="true">📦</span>WMS</a></li>
         <li role="menuitem" style="list-style: none!important;"><a href="/services/e-commerce"><span class="drop-icon" aria-hidden="true">🛒</span>E-Commerce</a></li>
         <li role="menuitem" style="list-style: none!important;"><a href="/services/ai-automation"><span class="drop-icon" aria-hidden="true">⚙️</span>AI Automation</a></li>
-      </ul>
+      </div></ul>
     </li>
     <li><a href="/about">About Us</a></li>
     <li><a href="/case-studies">Case Studies</a></li>
@@ -694,7 +695,7 @@
       </div>
     </div>
     <div class="contact-right">
-      <form class="contact-form" id="about-contact-form" onsubmit="handleContactSubmit(event)">
+      <form class="contact-form" id="about-contact-form" action="https://formsubmit.co/info@byetime.ai" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="cf-name">Your Name *</label>
@@ -791,20 +792,7 @@ burger.addEventListener('click', function(){
   navLinks.classList.toggle('open');
 });
   
-function handleContactSubmit(e){
-  e.preventDefault();
-  var form=e.target;
-  var success=document.getElementById('form-success');
-  var name=form.querySelector('[name=name]').value;
-  var email=form.querySelector('[name=email]').value;
-  var service=form.querySelector('[name=service]').value;
-  var message=form.querySelector('[name=message]').value;
-  var subject=encodeURIComponent('Byetime Enquiry'+(service?' — '+service:''));
-  var body=encodeURIComponent('Name: '+name+'\nService: '+(service||'Not specified')+'\n\nMessage:\n'+message+'\n\nFrom: '+email);
-  window.location.href='mailto:info@byetime.ai?subject='+subject+'&body='+body;
-  form.style.display='none';
-  success.style.display='block';
-}
+
 </script>
 </body>
 </html>
