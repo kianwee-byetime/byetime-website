@@ -691,7 +691,7 @@
       </div>
     </div>
     <div class="contact-right">
-      <form class="contact-form" id="main-contact-form" onsubmit="handleContactSubmit(event)">
+      <form class="contact-form" id="main-contact-form" action="https://formsubmit.co/info@byetime.ai" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="cf-name">Your Name *</label>
@@ -805,20 +805,7 @@ document.addEventListener('click',function(e){
 });
 
 // Contact form submission
-function handleContactSubmit(e){
-  e.preventDefault();
-  var form=document.getElementById('main-contact-form');
-  var success=document.getElementById('form-success');
-  var name=document.getElementById('cf-name').value;
-  var email=document.getElementById('cf-email').value;
-  var service=document.getElementById('cf-service').value;
-  var message=document.getElementById('cf-message').value;
-  var subject=encodeURIComponent('Byetime Enquiry'+(service?' — '+service:''));
-  var body=encodeURIComponent('Name: '+name+'\nService: '+(service||'Not specified')+'\n\nMessage:\n'+message+'\n\nFrom: '+email);
-  window.location.href='mailto:info@byetime.ai?subject='+subject+'&body='+body;
-  form.style.display='none';
-  success.style.display='block';
-}
+
 
 // ── SCROLL REVEAL ──
 var revealEls = document.querySelectorAll('.service-card, .step, .testi-card, .contact-inner, .section-title, .section-label');
