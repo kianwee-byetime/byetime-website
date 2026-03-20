@@ -241,6 +241,28 @@
   }
 
   /* ── CTA ── */
+    .about-cta{
+    padding:100px 60px;
+    background:var(--red);
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .about-cta::after{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.07) 1px,transparent 1px);
+    background-size:24px 24px;pointer-events:none;
+  }
+  .about-cta h2{
+    font-size:clamp(28px,5vw,52px);font-weight:900;letter-spacing:-1.5px;
+    color:var(--white);margin-bottom:16px;position:relative;z-index:1;
+  }
+  .about-cta p{
+    font-size:17px;color:rgba(255,255,255,.75);
+    max-width:480px;margin:0 auto 40px;line-height:1.7;
+    position:relative;z-index:1;
+  }
+  .cta-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1;}
+    .btn-white{background:var(--white);color:var(--red);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;font-family:'Poppins',sans-serif;}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.18);}
   .cs-cta{
     background:var(--green-dark);padding:90px 60px;
     text-align:center;position:relative;overflow:hidden;margin-top:0;
@@ -395,6 +417,7 @@
   .contact-inner{max-width:none;}
 
   @media(max-width:900px){
+    .about-cta{padding:72px 24px;}
     nav{padding:16px 20px;}
     .breadcrumb{padding-top:86px;}
     .breadcrumb-inner{padding:0 24px;}
@@ -609,6 +632,13 @@
 
 </section>
 
+<section class="about-cta" id="contact" aria-labelledby="cta-heading">
+  <h2 id="cta-heading">Let's Build Something<br>Meaningful Together.</h2>
+  <p>If you're looking to build smarter systems, automate workflows, or scale your digital capabilities — we'd love to explore how we can help.</p>
+  <div class="cta-actions">
+    <a href="#contact-form" class="btn-white">Schedule a Consultation</a>
+  </div>
+</section>
 </main>
 
 <footer role="contentinfo" aria-label="Site footer">
