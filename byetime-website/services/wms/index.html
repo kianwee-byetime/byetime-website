@@ -156,7 +156,7 @@
   /* ── HOW WE DO IT ── */
   .how{padding:88px 60px;background:var(--cream);}
   .how-inner{
-    display:grid;grid-template-columns:1fr 1fr;
+    <!--display:grid;-->grid-template-columns:1fr 1fr;
     gap:72px;align-items:center;
     max-width:1200px;margin:0 auto;
   }
@@ -231,6 +231,28 @@
   .faq-item.open .faq-a{max-height:300px;padding:0 24px 20px;}
 
   /* ── CTA BANNER ── */
+  .about-cta{
+    padding:100px 60px;
+    background:var(--red);
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .about-cta::after{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.07) 1px,transparent 1px);
+    background-size:24px 24px;pointer-events:none;
+  }
+  .about-cta h2{
+    font-size:clamp(28px,5vw,52px);font-weight:900;letter-spacing:-1.5px;
+    color:var(--white);margin-bottom:16px;position:relative;z-index:1;
+  }
+  .about-cta p{
+    font-size:17px;color:rgba(255,255,255,.75);
+    max-width:480px;margin:0 auto 40px;line-height:1.7;
+    position:relative;z-index:1;
+  }
+  .cta-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1;}
+    .btn-white{background:var(--white);color:var(--red);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;font-family:'Poppins',sans-serif;}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.18);}
   .cta-banner{
     padding:90px 60px;
     background:var(--green-dark);
@@ -381,7 +403,7 @@
   .svc-hero{padding:32px 60px 80px;position:relative;overflow:hidden;}
   .svc-hero-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;position:relative;z-index:2;max-width:none;margin:0;}
   .how{padding:88px 60px;background:var(--cream);}
-  .how-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:none;margin:0;}
+  .how-inner{<!--display:grid;-->grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:none;margin:0;}
   .services{padding:88px 60px;background:var(--white);}
   .services-inner{max-width:none;margin:0;}
   .faq{padding:88px 60px;background:var(--cream);}
@@ -436,6 +458,7 @@
     }
     .nav-links.open{display:flex;}
     .burger{display:grid!important;width:65px;}
+    .about-cta{padding:72px 24px;}
     .breadcrumb,.svc-hero,.how,.services,.faq,.contact-section{padding-left:24px;padding-right:24px;}
     .svc-hero-inner,.how-inner,.contact-inner{grid-template-columns:1fr;gap:36px;}
     .hero-visual,.how-img{height:220px;}
@@ -607,11 +630,11 @@
       <h2 class="how-title" id="how-heading">From chaos to controlled.</h2>
       <p class="how-body">If your team is still managing inventory on spreadsheets, doing manual stocktakes, or guessing at reorder points — you're operating blind. One stockout, one fulfilment error, one overstock situation is all it takes to lose a customer or tie up critical cash flow.<br/><br/>A properly implemented WMS eliminates the guesswork. Real-time visibility means you always know exactly what's in stock, where it is, and what needs replenishing. Automated pick-pack-ship workflows cut fulfilment time and errors. Barcode and RFID scanning replaces manual counting. The result: a warehouse that runs faster, with fewer mistakes, and less human effort.</p>
     </div>
-    <div class="how-img" role="img" aria-label="Illustration photo placeholder">
+    <!--<div class="how-img" role="img" aria-label="Illustration photo placeholder">
       <div class="ph-icon" aria-hidden="true">🖼️</div>
       <div class="ph-label">Team at work or relevant<br/>process photo</div>
       <div class="ph-size">Recommended: 900 × 700px</div>
-    </div>
+    </div>-->
   </div>
 </section>
 
@@ -690,6 +713,14 @@
           <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-3">We implement in phases and run parallel operations during transition. Typical go-live disruption is minimal with proper planning.</div>
         </div>
     </div>
+  </div>
+</section>
+
+  <section class="about-cta" id="contact" aria-labelledby="cta-heading">
+  <h2 id="cta-heading">Let's Build Something<br>Meaningful Together.</h2>
+  <p>If you're looking to build smarter systems, automate workflows, or scale your digital capabilities — we'd love to explore how we can help.</p>
+  <div class="cta-actions">
+    <a href="#contact-form" class="btn-white">Schedule a Consultation</a>
   </div>
 </section>
 
