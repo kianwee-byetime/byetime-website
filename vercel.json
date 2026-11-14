@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/services/erp-odoo", "destination": "/#services", "permanent": true },
+    { "source": "/services/system-integration", "destination": "/#services", "permanent": true },
+    { "source": "/services/tech-consulting", "destination": "/#services", "permanent": true },
+    { "source": "/services/wms", "destination": "/#services", "permanent": true },
+    { "source": "/services/e-commerce", "destination": "/#services", "permanent": true },
+    { "source": "/services/ai-automation", "destination": "/#services", "permanent": true },
+    { "source": "/services", "destination": "/#services", "permanent": true },
+    { "source": "/about", "destination": "/#about", "permanent": true },
+    { "source": "/case-studies", "destination": "/", "permanent": false }
+  ],
+  "headers": [
+    { "source": "/images/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+  ]
+}

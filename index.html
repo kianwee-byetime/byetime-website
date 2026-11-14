@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Byetime.AI | Odoo Malaysia Certified Partner for SMEs</title>
+<link rel="canonical" href="https://www.byetime.ai/">
+<meta property="og:title" content="Byetime.AI | Odoo Malaysia Certified Partner for SMEs">
+<meta property="og:description" content="We implement, customise and integrate Odoo for Malaysian SMEs, so your whole business runs on one connected system.">
+<meta property="og:url" content="https://www.byetime.ai/">
+<meta property="og:type" content="website">
+<meta name="description" content="Byetime.AI implements, customises and integrates Odoo for Malaysian SMEs, so sales, stock, accounts and people run on one connected system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#13221F; --surface:#1C3530; --text:#F8EFD8; --muted:#C5D0C9;
+  --line:rgba(248,239,216,.14); --line-strong:rgba(248,239,216,.32);
+  --red:#E8473F; --red-text:#FF8F86; --red-soft:rgba(232,71,63,.18);
+  --amber:#F8AF32; --chip:#24423C; --field:#13221F;
+  --deep:#0C1714; --on-deep:#F8EFD8; --on-deep-muted:rgba(248,239,216,.86);
+  --panel-soft:rgba(255,255,255,.04); --footer:#1C3530;
+  --active-bg:#F8EFD8; --active-fg:#1C3530;
+  --photo:#E9DFC4;
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root[data-theme="never"]{
+    --bg:#13221F; --surface:#1C3530; --text:#F8EFD8; --muted:#C5D0C9;
+    --line:rgba(248,239,216,.14); --line-strong:rgba(248,239,216,.32);
+    --red-text:#FF8F86; --red-soft:rgba(232,71,63,.18);
+    --chip:#24423C; --field:#13221F;
+    --deep:#0C1714; --on-deep:#F8EFD8; --on-deep-muted:rgba(248,239,216,.86);
+    --panel-soft:rgba(255,255,255,.04); --footer:#1C3530;
+    --active-bg:#F8EFD8; --active-fg:#1C3530;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#13221F; --surface:#1C3530; --text:#F8EFD8; --muted:#C5D0C9;
+  --line:rgba(248,239,216,.14); --line-strong:rgba(248,239,216,.32);
+  --red-text:#FF8F86; --red-soft:rgba(232,71,63,.18);
+  --chip:#24423C; --field:#13221F;
+  --deep:#0C1714; --on-deep:#F8EFD8; --on-deep-muted:rgba(248,239,216,.86);
+  --panel-soft:rgba(255,255,255,.04); --footer:#1C3530;
+  --active-bg:#F8EFD8; --active-fg:#1C3530;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Poppins,"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:clamp(20px,4vw,32px);padding-right:clamp(20px,4vw,32px)}
+.red{color:var(--red)}
+h1,h2,h3,p{margin:0}
+.h2{font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.12;font-weight:700;letter-spacing:-1px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red-text)}
+.section{padding-top:clamp(64px,9vw,96px);padding-bottom:clamp(64px,9vw,96px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:var(--red);color:#fff;font-weight:700;border:0;cursor:pointer;font-family:inherit;min-height:44px}
+.btn:hover{background:#D63C34}
+
+/* Header */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .2s}
+.site-header.scrolled{border-bottom-color:var(--line)}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
+.logo{font-size:26px;font-weight:700;letter-spacing:-.5px;text-decoration:none;color:var(--text)}
+.nav{display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500}
+.nav a.link{text-decoration:none}
+.nav a.link:hover{color:var(--red-text)}
+.nav .btn{padding:12px 20px;border-radius:999px;font-size:15px}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line-strong);background:var(--surface);color:var(--text);cursor:pointer;align-items:center;justify-content:center}
+.mobile-menu{display:none}
+
+/* Hero */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-top:32px;padding-bottom:56px}
+.hero-copy{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.partner-pill{display:inline-flex;align-self:flex-start;align-items:center;gap:12px;background:#fff;color:#1C3530;border:1px solid var(--line);padding:10px 18px;border-radius:999px;font-size:15px;font-weight:600}
+.partner-pill img{height:22px;width:auto;display:block}
+.hero h1{font-size:clamp(2.4rem,4.6vw,4rem);line-height:1.08;font-weight:700;letter-spacing:-1.5px}
+.hero-lead{font-size:18px;line-height:1.65;color:var(--muted);max-width:34rem}
+.hero .btn{align-self:flex-start;padding:18px 30px;border-radius:14px;font-size:19px;box-shadow:0 10px 24px rgba(232,71,63,.28);margin-top:4px}
+.hero-visual{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.pause-btn{align-self:flex-end;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:var(--surface);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.orbit{position:relative;width:100%;height:580px;background:var(--panel-soft);border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.orbit svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.spoke{stroke:var(--text);stroke-opacity:.14;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.done{stroke:var(--text);stroke-opacity:.7;stroke-width:2.5;vector-effect:non-scaling-stroke}
+.live{stroke:var(--red);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:8 6;animation:flow .9s linear infinite;vector-effect:non-scaling-stroke}
+@keyframes flow{to{stroke-dashoffset:-28}}
+.hub{position:absolute;left:50%;top:50%;width:132px;height:132px;border-radius:50%;background:#fff;border:1px solid rgba(113,75,103,.25);transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 14px 34px rgba(28,53,48,.18);z-index:2}
+.hub img{width:86px;height:auto;display:block}
+.hub span{font-size:12px;font-weight:500;color:#3D5A54}
+.pulse{position:absolute;left:50%;top:50%;width:132px;height:132px;border-radius:50%;border:2px solid var(--red);transform:translate(-50%,-50%);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{transform:translate(-50%,-50%) scale(1);opacity:.55}100%{transform:translate(-50%,-50%) scale(1.6);opacity:0}}
+.node{position:absolute;transform:translate(-50%,-50%);width:clamp(92px,24%,144px);padding:12px 10px;border-radius:18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--surface);color:var(--text);border:1px solid var(--line);opacity:.5;z-index:1;transition:transform .45s ease,background-color .45s ease,box-shadow .45s ease,opacity .45s ease,color .45s ease}
+.node img{width:40px;height:40px;object-fit:contain;display:block}
+.node .name{font-size:14px;font-weight:700;line-height:1.2}
+.node .fn{font-size:11.5px;line-height:1.35;color:var(--muted)}
+.node.inflow{opacity:1;border:2px dashed var(--line-strong);z-index:2}
+.node.visited{opacity:1;border:2px solid var(--text);box-shadow:0 6px 16px rgba(28,53,48,.12);z-index:2}
+.node.active{opacity:1;background:var(--active-bg);color:var(--active-fg);border:2px solid var(--active-bg);box-shadow:0 0 0 5px rgba(232,71,63,.4),0 14px 30px rgba(0,0,0,.25);transform:translate(-50%,-50%) scale(1.1);z-index:3}
+.node.active .fn{color:var(--active-fg);opacity:.9}
+
+/* Trust strip */
+.trust{border-top:1px solid var(--line);background:var(--surface)}
+.trust .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 48px;padding-top:28px;padding-bottom:28px}
+.trust-label{font-size:15px;font-weight:600;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;align-items:center;gap:20px 48px}
+.stat{display:flex;align-items:baseline;gap:10px}
+.stat b{font-size:32px;font-weight:700;letter-spacing:-1px}
+.stat span{font-size:15px;color:var(--muted)}
+.divider{width:1px;height:32px;background:var(--line-strong)}
+
+/* Problem */
+.center-head{max-width:720px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:14px}
+.ways{display:flex;flex-wrap:wrap;gap:24px;margin-top:44px}
+.way{flex:1 1 420px;min-width:0;border-radius:28px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.way.old{background:var(--surface);border:1px solid rgba(232,71,63,.35)}
+.way.new{background:var(--deep);color:var(--on-deep)}
+.tag{align-self:flex-start;padding:6px 14px;border-radius:99px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.old .tag{background:var(--red-soft);color:var(--red-text)}
+.new .tag{background:rgba(248,175,50,.18);color:var(--amber)}
+.stage{position:relative;height:330px}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.dash{stroke:var(--red);stroke-width:2;stroke-dasharray:6 7;opacity:.5;vector-effect:non-scaling-stroke}
+.solid{stroke:var(--on-deep);stroke-width:2;opacity:.4;vector-effect:non-scaling-stroke}
+.tool{position:absolute;transform:translate(-50%,-50%) rotate(var(--r,0deg));background:var(--chip);border:1px solid var(--line-strong);padding:9px 16px;border-radius:12px;font-size:15px;font-weight:600;white-space:nowrap;line-height:1.3;text-align:center}
+.warn{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;background:var(--surface);border:1.5px solid var(--red);color:var(--red-text);padding:5px 10px 5px 6px;border-radius:99px;font-size:12.5px;font-weight:700;white-space:nowrap;z-index:2}
+.warn i{font-style:normal;width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px}
+.app{position:absolute;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center}
+.app img{width:34px;height:34px}
+.mini-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:116px;height:116px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 0 0 8px rgba(248,239,216,.12)}
+.mini-hub img{width:76px;height:auto}
+.mini-hub span{font-size:11px;font-weight:600;color:#3D5A54}
+.checks{list-style:none;margin:0;padding:18px 0 0;display:flex;flex-direction:column;gap:10px;font-size:15px;font-weight:600}
+.old .checks{border-top:1px solid var(--line)}
+.new .checks{border-top:1px solid rgba(248,239,216,.15)}
+.checks li{display:flex;align-items:center;gap:10px}
+.checks svg{flex:0 0 auto}
+
+/* Services */
+#services{background:var(--surface)}
+.svc{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:28px;overflow:hidden;margin-top:44px}
+.svc-core{flex:1 1 380px;min-width:0;background:var(--deep);color:var(--on-deep);padding:clamp(28px,4vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.svc-core .inner{display:flex;flex-direction:column;gap:18px}
+.svc-icon{width:64px;height:64px;border-radius:16px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center}
+.svc-core .kicker{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber)}
+.svc-core h3{font-size:32px;line-height:1.15;font-weight:700}
+.svc-core p{font-size:17px;line-height:1.65;color:var(--on-deep-muted)}
+.svc-core .btn{align-self:flex-start;padding:14px 22px;border-radius:12px;font-size:16px}
+.svc-grid{flex:1.4 1 480px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line)}
+.svc-item{background:var(--surface);padding:32px;display:flex;flex-direction:column;gap:12px}
+.svc-item .ico{width:48px;height:48px;border-radius:12px;background:var(--chip);color:var(--text);display:flex;align-items:center;justify-content:center}
+.svc-item h3{font-size:20px;font-weight:700}
+.svc-item p{font-size:15px;line-height:1.6;color:var(--muted)}
+.built{margin-top:24px;background:var(--chip);border-radius:24px;padding:24px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px}
+.built-grid{flex:1 1 640px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px 24px}
+.ind{display:flex;align-items:center;gap:12px}
+.ind .ico{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:var(--surface);color:var(--text);display:flex;align-items:center;justify-content:center}
+.ind b{display:block;font-size:16px}
+.ind span{font-size:13px;color:var(--muted)}
+
+/* About */
+.about{display:flex;flex-wrap:wrap;gap:56px}
+.about-copy{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.about-copy p.body{font-size:17px;line-height:1.7;color:var(--muted)}
+.team{flex:1 1 460px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.person{background:var(--surface);border-radius:24px;padding:16px;display:flex;flex-direction:column;gap:14px}
+.person img{width:100%;height:320px;object-fit:cover;object-position:center top;border-radius:16px;display:block;background:var(--photo)}
+.person .meta{padding:0 8px 8px}
+.person b{display:block;font-size:19px}
+.person span{font-size:14px;color:var(--muted)}
+
+/* Contact */
+#contact{background:var(--surface)}
+.contact{display:flex;flex-wrap:wrap;gap:56px}
+.contact-copy{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.contact-copy p.body{font-size:17px;line-height:1.7;color:var(--muted)}
+.form{flex:1 1 520px;min-width:0;background:var(--chip);border-radius:24px;padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.form .full{grid-column:1/-1}
+.form input,.form select,.form textarea{font:inherit;font-weight:400;padding:13px 14px;border-radius:12px;border:1px solid var(--line-strong);background:var(--field);color:var(--text);font-size:16px}
+.form textarea{resize:vertical}
+.form .btn{grid-column:1/-1;font-size:18px;border-radius:14px;padding:17px}
+.form .note{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.form .error{grid-column:1/-1;font-size:14px;font-weight:600;color:var(--red-text);display:none}
+.sent{flex:1 1 520px;min-width:0;background:var(--chip);border-radius:24px;padding:40px;display:none;flex-direction:column;gap:12px;align-items:flex-start;justify-content:center}
+.sent b{font-size:24px}
+.sent p{color:var(--muted);font-size:16px;line-height:1.6}
+
+/* FAQ */
+.faq{max-width:920px;margin:0 auto}
+.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:36px}
+details{background:var(--surface);border-radius:18px;padding:20px 24px}
+summary{cursor:pointer;font-size:18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:24px;font-weight:400;color:var(--red);flex:0 0 auto;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:12px;font-size:16px;line-height:1.65;color:var(--muted)}
+
+/* Footer */
+footer{background:var(--footer);color:#F8EFD8;border-top:4px solid #E8473F}
+.foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:28px;padding-top:56px}
+.foot h4{margin:0 0 4px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#F8AF32}
+.foot .col{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.foot a{text-decoration:none;color:#F8EFD8}
+.foot a:hover{color:#E8473F}
+.foot p{font-size:14px;line-height:1.6;color:rgba(248,239,216,.8)}
+.legal{margin-top:40px;padding:24px 0 32px;border-top:1px solid rgba(248,239,216,.15);font-size:13px;color:rgba(248,239,216,.75)}
+
+/* WhatsApp button */
+.wa{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:13px 18px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.35);min-height:48px}
+.wa:hover{background:#D63C34}
+
+/* Mobile */
+@media (max-width: 860px){
+  .nav .link{display:none}
+  .nav{gap:10px}
+  .nav .btn{padding:10px 16px;font-size:14px}
+  .menu-btn{display:inline-flex}
+  .mobile-menu.open{display:flex;flex-direction:column;gap:4px;padding:8px clamp(20px,4vw,32px) 18px;border-top:1px solid var(--line)}
+  .mobile-menu a{text-decoration:none;font-size:17px;font-weight:600;padding:12px 4px;border-bottom:1px solid var(--line)}
+  .logo{font-size:22px}
+}
+@media (max-width: 600px){
+  .hero{gap:28px;padding-top:12px}
+  .hero .btn{align-self:stretch}
+  .orbit{height:480px;border-radius:22px}
+  .node{width:clamp(84px,27%,130px);padding:8px 6px;gap:4px;border-radius:14px}
+  .node img{width:30px;height:30px}
+  .node .name{font-size:12px}
+  .node .fn{font-size:10px}
+  .hub,.pulse{width:100px;height:100px}
+  .hub img{width:66px}
+  .hub span{font-size:10px}
+  .stat b{font-size:26px}
+  .divider{display:none}
+  .stage{height:320px}
+  .tool{font-size:13px;padding:7px 11px}
+  .warn{font-size:11px}
+  .w1{top:31% !important}
+  .w2{top:50% !important}
+  .w3{top:63% !important}
+  .way{padding:18px}
+  .svc-core h3{font-size:26px}
+  .svc-item{padding:24px}
+  .person img{height:300px}
+  .wa{padding:13px}
+  .wa .wa-label{display:none}
+  summary{font-size:16px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap header-row">
+    <a class="logo" href="#home">Byetime<span class="red">.</span>AI</a>
+    <nav class="nav" aria-label="Main">
+      <a class="link" href="#home">Home</a>
+      <a class="link" href="#services">Our Services</a>
+      <a class="link" href="#about">About Us</a>
+      <a class="btn" href="#contact">Talk to Our Expert</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#services">Our Services</a>
+    <a href="#about">About Us</a>
+  </div>
+</header>
+
+<main>
+<section id="home" class="wrap hero">
+  <div class="hero-copy">
+    <p class="partner-pill"><img src="/images/odoo-logo.svg" alt="Odoo"><span>Malaysia Certified Partner</span></p>
+    <h1>One system that connects your <span class="red">entire business.</span></h1>
+    <p class="hero-lead">Sales, stock, accounts and people on one Odoo database, instead of five tools that don’t talk to each other. We implement, customise and integrate Odoo for Malaysian SMEs, so you finally see the whole business in one place.</p>
+    <a class="btn" href="#contact">Talk to Our Expert →</a>
+  </div>
+  <div class="hero-visual">
+    <button class="pause-btn" type="button" aria-label="Pause animation">
+      <svg class="i-pause" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="8" y1="5" x2="8" y2="19"/><line x1="16" y1="5" x2="16" y2="19"/></svg>
+      <svg class="i-play" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true" style="display:none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+    </button>
+    <div class="orbit" role="img" aria-label="Odoo apps connected through one database">
+      <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><g class="spokes"></g><g class="flowlines"></g></svg>
+      <div class="pulse" aria-hidden="true"></div>
+      <div class="hub" aria-hidden="true"><img src="/images/odoo-logo.svg" alt=""><span>one database</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust" aria-label="Odoo by the numbers">
+  <div class="wrap">
+    <p class="trust-label">Odoo is trusted by</p>
+    <div class="stats">
+      <div class="stat"><b>15M+</b><span>users worldwide</span></div>
+      <span class="divider" aria-hidden="true"></span>
+      <div class="stat"><b>170,000+</b><span>companies worldwide</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="problem-h">
+  <div class="wrap">
+    <div class="center-head">
+      <p class="eyebrow">The problem</p>
+      <h2 class="h2" id="problem-h">Still running your business the <span class="red">old way?</span></h2>
+    </div>
+    <div class="ways">
+      <div class="way old">
+        <p class="tag">The old way</p>
+        <div class="stage" role="img" aria-label="Excel, WhatsApp, a notebook and SQL Account or AutoCount, disconnected, causing copy-paste orders, missed orders and stock that doesn’t match">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line class="dash" x1="20" y1="16" x2="80" y2="16"/><line class="dash" x1="80" y1="16" x2="20" y2="78"/><line class="dash" x1="20" y1="78" x2="80" y2="78"/><line class="dash" x1="20" y1="16" x2="20" y2="78"/>
+          </svg>
+          <span class="tool" style="left:20%;top:16%;--r:-4deg">Excel</span>
+          <span class="tool" style="left:80%;top:16%;--r:3deg">WhatsApp</span>
+          <span class="tool" style="left:20%;top:78%;--r:2deg">Notebook</span>
+          <span class="tool" style="left:80%;top:78%;--r:-3deg">SQL Account<br>/ AutoCount</span>
+          <span class="warn w1" style="left:50%;top:16%"><i aria-hidden="true">!</i>Copy-paste orders</span>
+          <span class="warn w2" style="left:50%;top:47%"><i aria-hidden="true">!</i>Missed orders</span>
+          <span class="warn w3" style="left:49%;top:78%"><i aria-hidden="true">!</i>Stock doesn’t match</span>
+        </div>
+        <ul class="checks">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8473F" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>The same order keyed in three times</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8473F" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Hours lost chasing and reconciling numbers</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8473F" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Paying for multiple subscriptions</li>
+        </ul>
+      </div>
+      <div class="way new">
+        <p class="tag">The new way</p>
+        <div class="stage" role="img" aria-label="Sales, Inventory, Purchase, Accounting, Employees and Manufacturing all connected to one Odoo database">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line class="solid" x1="50" y1="50" x2="50" y2="12"/><line class="solid" x1="50" y1="50" x2="82" y2="30"/><line class="solid" x1="50" y1="50" x2="82" y2="72"/><line class="solid" x1="50" y1="50" x2="50" y2="89"/><line class="solid" x1="50" y1="50" x2="18" y2="72"/><line class="solid" x1="50" y1="50" x2="18" y2="30"/>
+          </svg>
+          <span class="app" style="left:50%;top:12%"><img src="/images/sales.svg" alt=""></span>
+          <span class="app" style="left:82%;top:30%"><img src="/images/inventory.svg" alt=""></span>
+          <span class="app" style="left:82%;top:72%"><img src="/images/purchase.svg" alt=""></span>
+          <span class="app" style="left:50%;top:89%"><img src="/images/accounting.png" alt=""></span>
+          <span class="app" style="left:18%;top:72%"><img src="/images/employees.svg" alt=""></span>
+          <span class="app" style="left:18%;top:30%"><img src="/images/manufacturing.svg" alt=""></span>
+          <span class="mini-hub"><img src="/images/odoo-logo.svg" alt=""><span>one database</span></span>
+        </div>
+        <ul class="checks">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F8AF32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Entered once, flows everywhere</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F8AF32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Numbers ready the moment you need them</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F8AF32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>One system, one subscription</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" aria-labelledby="services-h">
+  <div class="wrap">
+    <div class="center-head">
+      <h2 class="h2" id="services-h">What we <span class="red">do</span></h2>
+    </div>
+    <div class="svc">
+      <div class="svc-core">
+        <div class="inner">
+          <span class="svc-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/><path d="m2 18 10 5 10-5"/></svg></span>
+          <p class="kicker">Our core service</p>
+          <h3>Odoo Implementation</h3>
+          <p>Scoping, configuration, training and go-live across the Odoo apps your business actually needs, set up around how your team works.</p>
+        </div>
+        <a class="btn" href="#contact">Talk to Our Expert →</a>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-item"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span><h3>Tech Consulting</h3><p>Process mapping and a fit-gap review before you commit, so you know exactly what Odoo will do for you.</p></div>
+        <div class="svc-item"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></span><h3>Customisation</h3><p>Custom fields, workflows, approvals and reports when standard Odoo doesn’t fit the way you run things.</p></div>
+        <div class="svc-item"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><h3>System Integration</h3><p>Connect Odoo to Shopee, Lazada, TikTok Shop, payment gateways, banks and the systems you already run.</p></div>
+        <div class="svc-item"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span><h3>Data Migration</h3><p>Customers, products, opening balances and documents moved over from SQL Account, AutoCount or Excel.</p></div>
+      </div>
+    </div>
+    <div class="built">
+      <p class="eyebrow">Built for</p>
+      <div class="built-grid">
+        <div class="ind"><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h14v12H1z"/><path d="M15 8h4l4 4v4h-8V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><span><b>Trading &amp; Distribution</b><span>Stock, pricing &amp; purchasing</span></span></div>
+        <div class="ind"><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V10l6 4v-4l6 4V4h4v16"/></svg></span><span><b>Manufacturing</b><span>BoM, work orders &amp; costing</span></span></div>
+        <div class="ind"><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><span><b>Retail</b><span>Outlets, online &amp; marketplaces</span></span></div>
+        <div class="ind"><span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span><b>Services</b><span>Projects, timesheets &amp; billing</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-h">
+  <div class="wrap about">
+    <div class="about-copy">
+      <p class="eyebrow">About us</p>
+      <h2 class="h2" id="about-h"><span class="red">Founder-led,</span> from first call to go-live.</h2>
+      <p class="body">We started in 2025 building AI automations for Malaysian businesses, and kept hitting the same wall: the basic systems underneath weren’t in place. So we went back to fundamentals. Today we help SMEs get one proper system running first, then automate on top of it.</p>
+      <p class="body">You talk to the people who build it. No hand-offs, no junior team you never met.</p>
+    </div>
+    <div class="team">
+      <div class="person"><img src="/images/kiwi.jpg" alt="Kiwi (Shi Kian Wee), CEO and Founder of Byetime"><div class="meta"><b>Kiwi (Shi Kian Wee)</b><span>CEO &amp; Founder</span></div></div>
+      <div class="person"><img src="/images/raymond.jpg" alt="Raymond, COO and Co-founder of Byetime"><div class="meta"><b>Raymond</b><span>COO &amp; Co-founder</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-h">
+  <div class="wrap contact">
+    <div class="contact-copy">
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="h2" id="contact-h">Speak to our <span class="red">expert.</span></h2>
+      <p class="body">A no-obligation call to find where your operations leak time and money, and whether Odoo is the right fix for your business.</p>
+    </div>
+    <form class="form" novalidate>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <label>Your name<input name="name" type="text" autocomplete="name" required></label>
+      <label>Company<input name="company" type="text" autocomplete="organization"></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label>Phone / WhatsApp<input name="phone" type="tel" autocomplete="tel"></label>
+      <label class="full">What’s your biggest headache right now?<select name="headache"><option value="">Choose one</option><option>Stock never matches</option><option>Month-end takes too long</option><option>No visibility on sales and margins</option><option>Too many disconnected systems</option><option>Getting ready for e-Invoice</option><option>Something else</option></select></label>
+      <label class="full">Tell us a bit more<textarea name="message" rows="4"></textarea></label>
+      <p class="error" role="alert">Add your name and a valid email so we can reply.</p>
+      <button class="btn" type="submit">Talk to our expert →</button>
+      <p class="note">We reply within 1 business day. By sending this form, you agree that Byetime may contact you about your enquiry.</p>
+    </form>
+    <div class="sent" role="status" aria-live="polite">
+      <b>Thanks, your message is in.</b>
+      <p>We’ll get back to you within 1 business day.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="faq-h">
+  <div class="wrap faq">
+    <div class="center-head">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h2" id="faq-h">Questions owners usually <span class="red">ask us.</span></h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>What is Odoo, and is it right for an SME?</summary><p>Odoo is a set of business apps (sales, inventory, accounting, HR and more) that all share one database. You start with the apps you need today and add more as you grow, so it suits small teams as well as larger companies.</p></details>
+      <details><summary>How much does it cost?</summary><p>There are two parts. The Odoo subscription is paid to Odoo, per user. Our implementation fee depends on the apps, users, customisation and data you bring over, and we give you a fixed scope and price after the consultation.</p></details>
+      <details><summary>How long does implementation take?</summary><p>Most SME projects go live within 8 weeks. Larger rollouts can go in phases, starting with the area that hurts most.</p></details>
+      <details><summary>Can you move our data from SQL Account, AutoCount or Excel?</summary><p>Yes. We migrate customers, suppliers, products, stock and opening balances, and can run both systems side by side during the switch so nothing is lost.</p></details>
+      <details><summary>Is Odoo ready for LHDN e-Invoice (MyInvois)?</summary><p>Yes. Odoo Enterprise has MyInvois integration built in, so invoices are submitted and validated straight from Odoo. We configure and test it with you before go-live.</p></details>
+      <details><summary>Odoo Community or Enterprise?</summary><p>Community is free but limited. Enterprise adds full accounting, e-Invoice, mobile apps and Odoo’s official support. We recommend whichever fits your needs and budget.</p></details>
+      <details><summary>Do you provide training and support after go-live?</summary><p>Yes. Your team is trained before go-live, and we stay on after launch to fix issues, train new staff and improve the system as your business grows.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="col"><span class="logo" style="color:#F8EFD8;font-size:24px">Byetime<span class="red">.</span>AI</span><p>Odoo Malaysia Certified Partner helping SMEs run on one connected system.</p></div>
+      <div class="col"><h4>Services</h4><span>Odoo Implementation</span><span>Customisation</span><span>System Integration</span><span>Tech Consulting</span><span>Data Migration</span></div>
+      <div class="col"><h4>Company</h4><a href="#services">Our Services</a><a href="#about">About Us</a><a href="#contact">Talk to Our Expert</a></div>
+      <div class="col"><h4>Contact</h4><a href="tel:+60173133284">+60 17-3133 284</a><a href="mailto:kianwee@byetime.ai">kianwee@byetime.ai</a><span>Shah Alam, Selangor, Malaysia</span><span>Instagram &amp; TikTok: @byetimekiwi</span></div>
+    </div>
+    <p class="legal">© 2026 Byetime Consulting and Solution (M) Sdn. Bhd. (202601018299). All rights reserved.</p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/60173133284?text=Hi%20Byetime%2C%20I%E2%80%99d%20like%20to%20know%20more%20about%20Odoo." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
+  <span class="wa-label">WhatsApp us</span>
+</a>
+
+<script>
+(function(){
+  // Header: border on scroll + mobile menu
+  var header=document.querySelector('.site-header');
+  window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>8)},{passive:true});
+  var menuBtn=document.querySelector('.menu-btn'), menu=document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  menu.addEventListener('click',function(e){ if(e.target.tagName==='A'){menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Open menu');} });
+
+  // Hero animation
+  var IC={sales:'/images/sales.svg',pos:'/images/point-of-sale.svg',inventory:'/images/inventory.svg',purchase:'/images/purchase.svg',accounting:'/images/accounting.png',fleet:'/images/fleet.svg',employees:'/images/employees.svg',mrp:'/images/manufacturing.svg'};
+  var N={
+    sales:{name:'Sales',fn:'Quotes & orders',x:20,y:16},
+    pos:{name:'Point of Sale',fn:'Retail checkout',x:50,y:13},
+    inventory:{name:'Inventory',fn:'Stock & delivery',x:80,y:16},
+    purchase:{name:'Purchase',fn:'Suppliers & RFQs',x:86,y:50},
+    accounting:{name:'Accounting',fn:'Invoices & e-Invoice',x:80,y:84},
+    fleet:{name:'Fleet',fn:'Vehicles & costs',x:50,y:87},
+    employees:{name:'Employees',fn:'Staff records',x:20,y:84},
+    mrp:{name:'Manufacturing',fn:'Work orders & BoM',x:14,y:50}
+  };
+  var FLOWS=[
+    {label:'Order to Cash',steps:[['sales','Quotation confirmed as an order'],['inventory','Stock reserved, delivery created'],['accounting','Invoice posted, e-Invoice sent to MyInvois']]},
+    {label:'Procure to Pay',steps:[['inventory','Low stock flagged automatically'],['purchase','RFQ sent to your supplier'],['inventory','Goods received, stock updated'],['accounting','Vendor bill matched and paid']]},
+    {label:'Make to Order',steps:[['sales','Customer order confirmed'],['mrp','Work order created from the BoM'],['inventory','Components used, finished goods in'],['accounting','Product cost and margin updated']]},
+    {label:'Retail',steps:[['pos','Sale rung up at the counter'],['inventory','Stock deducted in real time'],['accounting','Daily sales posted to the books']]},
+    {label:'Fleet Costs',steps:[['employees','Driver assigned to a vehicle'],['fleet','Service, fuel and contracts logged'],['accounting','Vehicle costs posted to the books']]}
+  ];
+  var orbit=document.querySelector('.orbit'), spokes=orbit.querySelector('.spokes'), flowG=orbit.querySelector('.flowlines');
+  var NS='http://www.w3.org/2000/svg', els={};
+  function line(g,cls,a,b){var l=document.createElementNS(NS,'line');l.setAttribute('class',cls);l.setAttribute('x1',a.x);l.setAttribute('y1',a.y);l.setAttribute('x2',b.x);l.setAttribute('y2',b.y);g.appendChild(l)}
+  var HUB={x:50,y:50};
+  Object.keys(N).forEach(function(k){
+    var n=N[k]; line(spokes,'spoke',HUB,n);
+    var d=document.createElement('div'); d.className='node'; d.style.left=n.x+'%'; d.style.top=n.y+'%'; d.setAttribute('aria-hidden','true');
+    var img=document.createElement('img'); img.src=IC[k]; img.alt='';
+    var nm=document.createElement('div'); nm.className='name'; nm.textContent=n.name;
+    var fn=document.createElement('div'); fn.className='fn'; fn.textContent=n.fn;
+    d.appendChild(img); d.appendChild(nm); d.appendChild(fn); orbit.appendChild(d); els[k]={el:d,fn:fn};
+  });
+  var f=0,s=0;
+  function render(){
+    var flow=FLOWS[f], ids=flow.steps.map(function(x){return x[0]}), active=ids[s];
+    var visited=ids.slice(0,s), inflow=ids;
+    Object.keys(N).forEach(function(k){
+      var e=els[k]; e.el.className='node'+(k===active?' active':visited.indexOf(k)>-1?' visited':inflow.indexOf(k)>-1?' inflow':'');
+      e.fn.textContent=k===active?flow.steps[s][1]:N[k].fn;
+    });
+    while(flowG.firstChild) flowG.removeChild(flowG.firstChild);
+    if(s===0) line(flowG,'live',N[ids[0]],HUB);
+    for(var i=1;i<=s;i++){var c=i===s?'live':'done'; line(flowG,c,N[ids[i-1]],HUB); line(flowG,c,HUB,N[ids[i]]);}
+    orbit.setAttribute('aria-label',flow.label+' in Odoo: '+ids.map(function(id){return N[id].name}).join(', then ')+', all on one database');
+  }
+  function tick(){ var len=FLOWS[f].steps.length; if(s+1<len) s++; else {f=(f+1)%FLOWS.length; s=0;} render(); }
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var paused=reduce, timer=null;
+  var pb=document.querySelector('.pause-btn'), ip=pb.querySelector('.i-pause'), il=pb.querySelector('.i-play');
+  function setPaused(p){ paused=p; ip.style.display=p?'none':''; il.style.display=p?'':'none'; pb.setAttribute('aria-label',p?'Play animation':'Pause animation');
+    if(timer){clearInterval(timer);timer=null} if(!p) timer=setInterval(tick,2400); }
+  pb.addEventListener('click',function(){setPaused(!paused)});
+  render(); setPaused(paused);
+
+  // Contact form -> email via FormSubmit
+  var FORM_ENDPOINT='https://formsubmit.co/ajax/kianwee@byetime.ai';
+  var form=document.querySelector('.form'), err=form.querySelector('.error'), sent=document.querySelector('.sent'), btn=form.querySelector('button[type=submit]');
+  var btnText=btn.textContent;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var F=form.elements, name=F['name'].value.trim(), email=F['email'].value.trim();
+    var ok=name&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    err.textContent='Add your name and a valid email so we can reply.';
+    err.style.display=ok?'none':'block';
+    if(!ok){ (name?F['email']:F['name']).focus(); return; }
+    if(F['_honey'].value) return;
+    btn.disabled=true; btn.textContent='Sending\u2026';
+    var payload={
+      name:name, email:email,
+      company:F['company'].value.trim(), phone:F['phone'].value.trim(),
+      headache:F['headache'].value, message:F['message'].value.trim(),
+      _subject:'New website enquiry from '+name, _template:'table', _captcha:'false', _replyto:email
+    };
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      .then(function(){ form.style.display='none'; sent.style.display='flex'; sent.setAttribute('tabindex','-1'); sent.focus(); })
+      .catch(function(){
+        err.textContent='Your message didn\u2019t send. Try again, or WhatsApp us at +60 17-3133 284.';
+        err.style.display='block'; btn.disabled=false; btn.textContent=btnText;
+      });
+  });
+})();
+</script>
+</body>
+</html>
