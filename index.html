@@ -632,44 +632,19 @@ footer{background:var(--footer);color:#F8EFD8;border-top:4px solid #E8473F}
   pb.addEventListener('click',function(){setPaused(!paused)});
   render(); setPaused(paused);
 
-  // Contact form — sends to FormSubmit
-  var FORM_ENDPOINT='https://formsubmit.co/ajax/kianwee@byetime.ai';
-  var form=document.querySelector('.form'), err=form.querySelector('.error'), sent=document.querySelector('.sent');
-  var btn=form.querySelector('button[type=submit]');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var F=form.elements, name=F['name'].value.trim(), email=F['email'].value.trim();
-    var ok=name&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    err.style.display=ok?'none':'block';
-    if(!ok){ (name?F['email']:F['name']).focus(); return; }
-    btn.disabled=true; btn.textContent='Sending…';
-    var payload={
-      name: name,
-      email: email,
-      company: (F['company']&&F['company'].value)||'',
-      phone: (F['phone']&&F['phone'].value)||'',
-      headache: (F['headache']&&F['headache'].value)||'',
-      message: (F['message']&&F['message'].value)||'',
-      _subject: 'New enquiry from '+name+' — Byetime.AI',
-      _captcha: 'false',
-      _template: 'table'
-    };
-    fetch(FORM_ENDPOINT,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(payload)
-    })
-    .then(function(r){return r.json();})
-    .then(function(data){
-      form.style.display='none'; sent.style.display='flex';
-      sent.setAttribute('tabindex','-1'); sent.focus();
-    })
-    .catch(function(){
-      btn.disabled=false; btn.textContent='Talk to our expert →';
-      err.textContent='Something went wrong — please try again or WhatsApp us.';
-      err.style.display='block';
+  // Contact form: allow native HTML POST to FormSubmit.
+  // Browser validation handles required name and valid email.
+  var form = document.querySelector('#contact form');
+  if (form) {
+    form.addEventListener('submit', function () {
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn && form.checkValidity()) {
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+      }
     });
-  });
+  }
+
 })();
 </script>
 </body>
